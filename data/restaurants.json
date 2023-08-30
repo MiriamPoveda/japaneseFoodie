@@ -1,0 +1,26 @@
+[
+  {
+    "restaurant": "Ramen Kagura",
+    "description": "Ramen Kagura ofrece una experiencia culinaria única con sus auténticos platos de ramen. Cada tazón de ramen está lleno de sabores intensos y auténticos ingredientes que te transportarán directamente a las calles de Japón.",
+    "businessLogo": "../images/restaurants/kagura/logo-kagura.png",
+    "imageOne": "../images/restaurants/kagura/ebifry.png",
+    "imageTwo": "../images/restaurants/kagura/rascacielos.png",
+    "imageThree": "../images/restaurants/kagura/tantanmen.png"
+  },
+  {
+    "restaurant": "Sibuya Urban Sushi Bar",
+    "description": "Sibuya redefine el arte del sushi combinando tradición y creatividad en cada rollo. Desde sashimi delicado hasta creaciones únicas de sushi, Sibuya ofrece una deliciosa aventura para los amantes de la comida japonesa moderna.",
+    "businessLogo": "../images/restaurants/sibuya/logo-sibuya.png",
+    "imageOne": "../images/restaurants/sibuya/gunkan.png",
+    "imageTwo": "../images/restaurants/sibuya/gyozas.png",
+    "imageThree": "../images/restaurants/sibuya/yakisoba-chicken.png"
+  },
+  {
+    "restaurant": "Udon",
+    "description": "Sumérgete en el auténtico sabor de Japón en Udon. Desde las versiones más tradicionales hasta las combinaciones más modernas, cada bocado de sus fideos udon se sumerge en caldos ricos y aromáticos. Este restaurante celebra la versatilidad de este plato japonés clásico.",
+    "businessLogo": "../images/restaurants/udon/logo-udon.png",
+    "imageOne": "../images/restaurants/udon/izakayas.png",
+    "imageTwo": "../images/restaurants/udon/salmon-tartar.png",
+    "imageThree": "../images/restaurants/udon/kimchi-ramen.png"
+  }
+]

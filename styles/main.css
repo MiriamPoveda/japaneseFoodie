@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    --restaurantsTitles: 'Mina', sans-serif;
+    --restaurantsInfo: 'Just Another Hand', cursive;
+    --formTitles: 'Teko', sans-serif;
+    --inputsText: 'Rajdhani', sans-serif;
+    --footerTexts: 'Handjet', cursive;
+}
+
+/* ---- HEADER ---- */
+
+.headerContainer {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0 0;
+    margin-bottom: 1rem;
+}
+
+.headerContainer__principalLogo {
+    width: 50%;
+    margin: -2rem 0;
+}
+
+.headerContainer__headerLogo {
+    width: 40%;
+}
+
+/* ---- MAIN (RESTAURANTS SECTION) ---- */
+
+#restaurantsList {
+    list-style: none;
+}
+
+.restaurants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.restaurants.active {
+    background-color: #4caf504a;
+    border-radius: 15%;
+    margin: 0 0.5rem;
+}
+
+.restaurants__restaurantsTitles {
+    font-family: var(--restaurantsTitles);
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.restaurants__restaurantsLogos {
+    width: 16%;
+    cursor: pointer;
+}
+
+.restaurants__restaurantsInfo {
+    font-family: var(--restaurantsInfo);
+    width: 85%;
+    font-size: 1.3em;
+}
+
+.restaurantMeal {
+    width: 30%;
+}
+
+#mealTwo {
+    margin: 0 0.5rem;
+}
+
+/* ---- MAIN (FORM SECTION) ---- */
+
+.foodyLogo {
+    width: 80%;
+    margin-left: -2.5rem;
+    z-index: -1;
+}
+
+.formSection {
+    display: flex;
+    background-color: #d3d3d33b;
+    padding: 2rem 0 0 2rem;
+    margin-top: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    width: 60%;
+}
+
+label {
+    font-family: var(--formTitles);
+}
+
+.inputs {
+    font-family: var(--inputsText);
+    background-color: #d3d3d369;
+    border: 1px solid black;
+    border-radius: 5%;
+    margin-bottom: 0.3rem;
+    padding: 0.2rem;
+}
+
+.buttonToSend {
+    margin-top: 1rem;
+    width: 35%;
+}
+
+/* ---- FOOTER ---- */
+
+.footerContainer {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    font-family: var(--footerTexts);
+}

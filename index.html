@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FAVICON -->
+    <link rel="icon" href="./images/page/favicon.ico" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Just+Another+Hand&family=Mina&family=Rajdhani:wght@400&family=Teko:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./styles/main.css" />
+    <script type="module" src="/js/main.js"></script>
+    <title>Japanese Foodie</title>
+  </head>
+  <body>
+    <header class="headerContainer">
+      <img
+        class="headerContainer__principalLogo"
+        src="./images/page/logo.png"
+        alt="Logo de Japanese Foodie"
+      />
+      <img
+        class="headerContainer__headerLogo"
+        src="./images/page/header-logo.png"
+        alt="Dibujo de chica comiendo ramen"
+      />
+    </header>
+    <main>
+      <section>
+        <ul id="restaurantsList"></ul>
+      </section>
+      <section class="formSection">
+        <form>
+          <label for="specialDate">Fecha</label>
+          <input
+            class="inputs"
+            type="date"
+            id="specialDate"
+            name="specialDate"
+            required
+          />
+
+          <label for="hour">Hora</label>
+          <input class="inputs" type="time" id="hour" name="hour" required />
+
+          <label for="people">¿Cuánt@s sois?</label>
+          <input
+            class="inputs"
+            type="number"
+            id="people"
+            name="people"
+            min="1"
+            required
+          />
+
+          <label for="firstName">Nombre:</label>
+          <input
+            class="inputs"
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+          />
+
+          <label for="email">Email:</label>
+          <input class="inputs" type="email" id="email" name="email" required />
+
+          <label for="personalPhone">Teléfono:</label>
+          <input
+            class="inputs"
+            type="number"
+            id="personalPhone"
+            name="personalPhone"
+            required
+          />
+
+          <input class="buttonToSend" type="submit" value="Enviar" />
+        </form>
+        <img
+          class="foodyLogo"
+          src="./images/page/foody-logo.png"
+          alt="Dibujo de chica comiendo arroz"
+        />
+      </section>
+    </main>
+    <footer class="footerContainer">
+      <small>Disfruta tu comida al más puro estilo anime</small>
+      <small>Miriam Poveda ©2023</small>
+    </footer>
+  </body>
+</html>
