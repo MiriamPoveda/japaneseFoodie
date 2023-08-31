@@ -15,10 +15,10 @@ function createRestaurant(item) {
       <p class="restaurants__restaurantsTitles">${item.restaurant}</p>
       <img class="restaurants__restaurantsLogos" src="${item.businessLogo}" alt="${item.restaurant}"/>
       <p class="restaurants__restaurantsInfo">${item.description}</p>
-      <div>
-        <img class="restaurantMeal" src="${item.imageOne}" alt="Meal" />
-        <img id="mealTwo" class="restaurantMeal" src="${item.imageTwo}" alt="Meal" />
-        <img class="restaurantMeal" src="${item.imageThree}" alt="Meal" />
+      <div class="desktopImages">
+        <img class="restaurantMeal meals" src="${item.imageOne}" alt="Meal" />
+        <img id="mealTwo" class="restaurantMeal meals" src="${item.imageTwo}" alt="Meal" />
+        <img class="restaurantMeal meals" src="${item.imageThree}" alt="Meal" />
       </div>
     </div>
   `;
@@ -59,6 +59,10 @@ function handleRestaurantClick(event) {
 
 function handleBookingSend(event) {
   event.preventDefault();
+  if (activeRestaurant) {
+    activeRestaurant.classList.remove("active");
+    activeRestaurant = null;
+  }
   bookingForm.reset();
 }
 
