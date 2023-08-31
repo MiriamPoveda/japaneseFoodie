@@ -276,6 +276,24 @@ label {
     color: black;
 }
 
+#reservationMessage {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color:#4caf4f;
+    font-family: var(--dottedText);
+    font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}
+
+@media all and (min-width: 768px) {
+    #reservationMessage {
+        font-size: 1.5rem;
+    }
+}
+
 @media all and (min-width: 1024px) {
     label {
         font-size: 1.5rem;
@@ -292,9 +310,13 @@ label {
     .formSection {
         padding-left: 5rem;
     }
+
+    #reservationMessage {
+        font-size: 2rem;
+    }
 }
 
-@media all and (min-width: 1400px) {
+@media all and (min-width: 1440px) {
     label {
         font-size: 1.8rem;
     }
@@ -305,6 +327,10 @@ label {
 
     .buttonContainer__buttonToSend {
         font-size: 2rem;
+    }
+
+    #reservationMessage {
+        font-size: 2.3rem;
     }
 }
 
@@ -325,6 +351,10 @@ label {
         padding-left: 10rem;
         padding-top: 6rem;
     }
+
+    #reservationMessage {
+        font-size: 3rem;
+    }
 }
 
 @media all and (min-width: 2560px) {
@@ -337,6 +367,10 @@ label {
     }
 
     .buttonContainer__buttonToSend {
+        font-size: 4rem;
+    }
+
+    #reservationMessage {
         font-size: 4rem;
     }
 }

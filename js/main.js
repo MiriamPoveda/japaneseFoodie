@@ -5,6 +5,7 @@ import { fetchRestaurants } from "./services/data.js";
 const restaurantsList = document.getElementById("restaurantsList");
 let activeRestaurant = null;
 const bookingForm = document.getElementById("bookingForm");
+const reservationMessage = document.getElementById("reservationMessage");
 
 // Estructura para cada restaurante
 
@@ -64,6 +65,11 @@ function handleBookingSend(event) {
     activeRestaurant = null;
   }
   bookingForm.reset();
+  reservationMessage.classList.remove("hidden");
+
+  setTimeout(() => {
+    reservationMessage.classList.add("hidden");
+  }, 3000);
 }
 
 restaurantsList.addEventListener("click", handleRestaurantClick);
