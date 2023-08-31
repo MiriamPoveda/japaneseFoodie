@@ -35,7 +35,7 @@
         <ul id="restaurantsList"></ul>
       </section>
       <section class="formSection">
-        <form>
+        <form id="bookingForm">
           <label for="specialDate">Fecha</label>
           <input
             class="inputs"
@@ -58,7 +58,7 @@
             required
           />
 
-          <label for="firstName">Nombre:</label>
+          <label for="firstName">Nombre</label>
           <input
             class="inputs"
             type="text"
@@ -67,19 +67,26 @@
             required
           />
 
-          <label for="email">Email:</label>
+          <label for="email">Email</label>
           <input class="inputs" type="email" id="email" name="email" required />
 
-          <label for="personalPhone">Teléfono:</label>
+          <label for="personalPhone">Teléfono</label>
           <input
             class="inputs"
-            type="number"
+            type="tel"
             id="personalPhone"
             name="personalPhone"
             required
           />
 
-          <input class="buttonToSend" type="submit" value="Enviar" />
+          <div class="buttonContainer">
+            <input
+              id="bookingSend"
+              class="buttonContainer__buttonToSend"
+              type="submit"
+              value="Enviar"
+            />
+          </div>
         </form>
         <img
           class="foodyLogo"

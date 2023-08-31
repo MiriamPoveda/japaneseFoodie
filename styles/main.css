@@ -7,7 +7,7 @@
     --restaurantsInfo: 'Just Another Hand', cursive;
     --formTitles: 'Teko', sans-serif;
     --inputsText: 'Rajdhani', sans-serif;
-    --footerTexts: 'Handjet', cursive;
+    --dottedText: 'Handjet', cursive;
 }
 
 /* ---- HEADER ---- */
@@ -34,6 +34,7 @@
 
 #restaurantsList {
     list-style: none;
+    margin-top: 2rem;
 }
 
 .restaurants {
@@ -42,12 +43,13 @@
     align-items: center;
     text-align: center;
     gap: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .restaurants.active {
     background-color: #4caf504a;
     border-radius: 15%;
-    margin: 0 0.5rem;
+    margin: 0 0.5rem 1.5rem;
 }
 
 .restaurants__restaurantsTitles {
@@ -87,7 +89,6 @@
     display: flex;
     background-color: #d3d3d33b;
     padding: 2rem 0 0 2rem;
-    margin-top: 1rem;
 }
 
 form {
@@ -110,9 +111,27 @@ label {
     padding: 0.2rem;
 }
 
-.buttonToSend {
+.buttonContainer {
+    padding: 0 0 1rem;
+}
+
+.buttonContainer__buttonToSend {
+    border: none;
+    background-color: black;
+    color: white;
     margin-top: 1rem;
-    width: 35%;
+    padding: 0.3rem;
+    border-radius: 15%;
+    font-family: var(--dottedText);
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.buttonContainer__buttonToSend:hover {
+    background-color: white;
+    border: 1px dotted black;
+    color: black;
 }
 
 /* ---- FOOTER ---- */
@@ -124,5 +143,5 @@ label {
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
-    font-family: var(--footerTexts);
+    font-family: var(--dottedText);
 }
