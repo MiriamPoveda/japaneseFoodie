@@ -56,20 +56,57 @@ function handleRestaurantClick(event) {
   }
 }
 
-// Simulación de envío de formulario
+// Simulación de envío de reserva
 
-function handleBookingSend(event) {
+async function handleBookingSend(event) {
   event.preventDefault();
-  if (activeRestaurant) {
-    activeRestaurant.classList.remove("active");
-    activeRestaurant = null;
-  }
-  bookingForm.reset();
-  reservationMessage.classList.remove("hidden");
 
-  setTimeout(() => {
-    reservationMessage.classList.add("hidden");
-  }, 3000);
+  if (activeRestaurant) {
+    const formData = new FormData(bookingForm);
+    const bookingData = {};
+
+    formData.forEach((value, key) => {
+      bookingData[key] = value;
+    });
+
+    bookingData["selectedRestaurant"] = activeRestaurant.querySelector(
+      ".restaurants__restaurantsTitles"
+    ).textContent;
+
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bookingData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Error al enviar la reserva");
+      }
+
+      const responseData = await response.json();
+
+      // Simular reserva a través de la consola
+      console.log("Reserva enviada con éxito:", responseData);
+
+      // Limpiar la selección de restaurante y reinicia el formulario
+      activeRestaurant.classList.remove("active");
+      activeRestaurant = null;
+      bookingForm.reset();
+      reservationMessage.classList.remove("hidden");
+
+      setTimeout(() => {
+        reservationMessage.classList.add("hidden");
+      }, 3000);
+    } catch (error) {
+      console.error("Error al enviar la reserva:", error.message);
+    }
+  }
 }
 
 restaurantsList.addEventListener("click", handleRestaurantClick);
