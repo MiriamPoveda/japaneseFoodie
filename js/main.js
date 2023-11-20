@@ -4,6 +4,7 @@ import { fetchRestaurants } from "./services/data.js";
 
 const restaurantsList = document.getElementById("restaurantsList");
 let activeRestaurant = null;
+const filterInput = document.getElementById("restaurantFilter");
 const bookingForm = document.getElementById("bookingForm");
 const reservationMessage = document.getElementById("reservationMessage");
 
@@ -11,6 +12,7 @@ const reservationMessage = document.getElementById("reservationMessage");
 
 function createRestaurant(item) {
   const eachRestaurant = document.createElement("li");
+  eachRestaurant.setAttribute("data-restaurant-name", item.restaurant);
   eachRestaurant.innerHTML = `
     <div class="restaurants">
       <p class="restaurants__restaurantsTitles">${item.restaurant}</p>
@@ -36,6 +38,38 @@ async function renderRestaurants() {
     const eachRestaurant = createRestaurant(item);
     restaurantsList.appendChild(eachRestaurant);
   });
+}
+
+// Filtro para buscar por nombre
+
+function filterRestaurantsByName() {
+  const filterInput = document.getElementById("restaurantFilter");
+  const filterValue = filterInput.value.toLowerCase();
+
+  const restaurantItems = document.querySelectorAll("[data-restaurant-name]");
+  const noResultsMessage = document.getElementById("noResultsMessage");
+
+  let foundMatch = false;
+
+  restaurantItems.forEach((item) => {
+    const restaurantName = item
+      .getAttribute("data-restaurant-name")
+      .toLowerCase();
+    if (restaurantName.includes(filterValue)) {
+      item.classList.remove("hidden");
+      foundMatch = true;
+    } else {
+      item.classList.add("hidden");
+    }
+  });
+
+  // Mostrar u ocultar mensaje (si se encontraron (o no) restaurantes)
+
+  if (foundMatch) {
+    noResultsMessage.classList.add("hidden");
+  } else {
+    noResultsMessage.classList.remove("hidden");
+  }
 }
 
 // Simulación de selección de restaurante
@@ -110,6 +144,7 @@ async function handleBookingSend(event) {
 }
 
 restaurantsList.addEventListener("click", handleRestaurantClick);
+filterInput.addEventListener("input", filterRestaurantsByName);
 bookingForm.addEventListener("submit", handleBookingSend);
 
 renderRestaurants();

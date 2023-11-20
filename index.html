@@ -34,8 +34,29 @@
       />
     </header>
     <main>
+      <!-- FILTER -->
+      <section class="filterBox">
+        <div class="filterBox__filterInput">
+          <label for="restaurantFilter">Encuentra lo que buscas (o no):</label>
+          <input
+            type="text"
+            id="restaurantFilter"
+            class="inputs"
+            placeholder="Nombre del restaurante"
+          />
+        </div>
+      </section>
       <!-- RESTAURANTS LIST -->
       <section>
+        <div class="filterBox__filterMessage">
+          <p
+            id="noResultsMessage"
+            class="hidden restaurants__restaurantsTitles"
+          >
+            Son Gokū (孫悟空) nos informa de que no hay restaurantes con esta
+            búsqueda.
+          </p>
+        </div>
         <ul id="restaurantsList"></ul>
       </section>
       <!-- SEND FORM -->

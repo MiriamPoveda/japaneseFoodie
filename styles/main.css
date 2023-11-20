@@ -17,7 +17,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
     height: 100vh;
 }
 
@@ -83,6 +82,28 @@
     .headerContainer__headerLogo {
         width: 35%;
     }
+}
+
+/* ---- MAIN (FILTER SECTIONS) ---- */
+
+.filterBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+    background-color: #d3d3d33b;
+}
+
+.filterBox__filterInput {
+    display: flex;
+    gap: 1rem;
+}
+
+.filterBox__filterMessage {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem 0;
 }
 
 /* ---- MAIN (RESTAURANTS SECTION) ---- */
