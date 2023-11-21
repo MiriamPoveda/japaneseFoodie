@@ -6,6 +6,10 @@ const restaurantsList = document.getElementById("restaurantsList");
 let activeRestaurant = null;
 const filterInput = document.getElementById("restaurantFilter");
 const bookingForm = document.getElementById("bookingForm");
+const dateInput = document.getElementById("specialDate");
+const nameInput = document.getElementById("firstName");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("personalPhone");
 const reservationMessage = document.getElementById("reservationMessage");
 
 // Estructura para cada restaurante
@@ -90,10 +94,80 @@ function handleRestaurantClick(event) {
   }
 }
 
+// Validaciones del formulario
+
+function handleInputValidation() {
+  validateNameInput();
+  validatePhoneInput();
+  validateEmailInput();
+}
+
+// Validación del campo de nombre
+function validateNameInput() {
+  const nameValue = nameInput.value;
+  const filteredCharacters = /^[a-zA-ZáãéíóõúüÜÁÃÉÍÓÕÚÑñ\s-AEIOUaeiou]+$/;
+  const filteredName = nameValue
+    .split("")
+    .filter((char) => filteredCharacters.test(char))
+    .join("");
+  nameInput.value = filteredName;
+}
+
+// Validación del campo de email
+function validateEmailInput() {
+  const emailValue = emailInput.value;
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return emailRegex.test(emailValue);
+}
+
+// Validación del campo del teléfono
+function validatePhoneInput() {
+  const phoneValue = phoneInput.value;
+  const numericPhone = phoneValue.replace(/\D/g, "");
+  const limitedPhone = numericPhone.slice(0, 9);
+  phoneInput.value = limitedPhone;
+  return limitedPhone.length === 9;
+}
+
+// Validación del campo de fecha
+function handleDateValidation() {
+  const today = new Date();
+  const formattedToday = today.toISOString().split("T")[0];
+  // Sólo permite seleccionar días posteriores al actual
+  dateInput.setAttribute("min", formattedToday);
+  const maxDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 30
+  );
+  const formattedMaxDate = maxDate.toISOString().split("T")[0];
+  // Muestra un máximo de 30 días posteriores a la fecha actual
+  dateInput.setAttribute("max", formattedMaxDate);
+}
+
+function validateForm() {
+  // Verificación de restaurante seleccionado
+  if (!activeRestaurant) {
+    alert("Por favor, selecciona un restaurante antes de enviar la reserva.");
+    return false;
+  }
+
+  handleInputValidation();
+
+  return true;
+}
+
 // Simulación de envío de reserva
 
 async function handleBookingSend(event) {
   event.preventDefault();
+  const isPhoneValid = validatePhoneInput();
+  const isEmailValid = validateEmailInput();
+
+  // Comprobar validaciones al intentar enviar
+  if (!validateForm()) {
+    return;
+  }
 
   if (activeRestaurant) {
     const formData = new FormData(bookingForm);
@@ -106,6 +180,18 @@ async function handleBookingSend(event) {
     bookingData["selectedRestaurant"] = activeRestaurant.querySelector(
       ".restaurants__restaurantsTitles"
     ).textContent;
+
+    // Mostrar alerta si el número de teléfono no es válido
+    if (!isPhoneValid) {
+      alert("Por favor, ingresa un número de teléfono válido con 9 dígitos.");
+      return;
+    }
+
+    // Mostrar alerta si el email no es válido
+    if (!isEmailValid) {
+      alert("Por favor, ingresa un email válido.");
+      return;
+    }
 
     try {
       const response = await fetch(
@@ -128,7 +214,7 @@ async function handleBookingSend(event) {
       // Simular reserva a través de la consola
       console.log("Reserva enviada con éxito:", responseData);
 
-      // Limpiar la selección de restaurante y reinicia el formulario
+      // Limpiar la selección de restaurante y reiniciar el formulario
       activeRestaurant.classList.remove("active");
       activeRestaurant = null;
       bookingForm.reset();
@@ -146,5 +232,9 @@ async function handleBookingSend(event) {
 restaurantsList.addEventListener("click", handleRestaurantClick);
 filterInput.addEventListener("input", filterRestaurantsByName);
 bookingForm.addEventListener("submit", handleBookingSend);
+dateInput.addEventListener("input", handleDateValidation);
+nameInput.addEventListener("input", handleInputValidation);
+emailInput.addEventListener("input", handleInputValidation);
+phoneInput.addEventListener("input", handleInputValidation);
 
 renderRestaurants();
