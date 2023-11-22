@@ -16,14 +16,14 @@ Para dar una impresión impactante desde el principio, he diseñado un header qu
 
 >*Lista de Restaurantes*
 
-Mediante el uso de un **Fetch** de *JavaScript*, he implementado una forma conveniente de mostrar una lista de restaurantes. Estos datos se almacenan en un archivo **JSON** y se muestran en la página de manera organizada. Esto permite a los visitantes explorar los diferentes restaurantes japoneses disponibles.
+Mediante el uso de un **Fetch** de *JavaScript*, he implementado una forma conveniente de mostrar una lista de restaurantes. Estos datos se almacenan en un archivo **JSON** y se muestran en la página de manera organizada. Esto permite a los visitantes explorar los diferentes restaurantes japoneses disponibles. Además, cuenta con un buscador para poder filtrarlos a través de su nombre y, de no encontrar coincidencias, nos informará de que no hay resultados con dicha búsqueda.
 
->*Funcionalidades Simuladas*
+>*Funcionalidades*
 
-Aunque no eran estrictamente necesarias, he añadido algunas funcionalidades *"falsas"* para mejorar la experiencia del usuario. Esto incluye la simulación de la selección de un restaurante y el envío de un formulario para realizar una reserva. Aunque estas acciones no tengan un impacto real en el funcionamiento del sitio, proporcionan una sensación interactiva y atractiva para los usuarios.
+He añadido algunas funcionalidades *"falsas"* para mejorar la experiencia del usuario. Esto incluye la simulación de la selección de un restaurante y el envío de un formulario para realizar una reserva. Aunque estas acciones no tengan un impacto real en el funcionamiento del sitio, proporcionan una sensación interactiva y atractiva para los usuarios. Además, cuenta con otras funcionalidades para validar los datos que se envían a la hora de lanzar el formulario con la reserva deseada.
 
 ### Tecnologías Utilizadas
 
 - `HTML/CSS` para la estructura y el estilo de la página.
-- `JavaScript` para el pintado de los restaurantes y las acciones simuladas.
+- `JavaScript` para el pintado de los restaurantes, validaciones del formulario y acciones simuladas.
 - `Canva` para la creación del logo de la página.
