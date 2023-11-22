@@ -132,16 +132,18 @@ function validatePhoneInput() {
 // Validación del campo de fecha
 function handleDateValidation() {
   const today = new Date();
-  const formattedToday = today.toISOString().split("T")[0];
   // Sólo permite seleccionar días posteriores al actual
-  dateInput.setAttribute("min", formattedToday);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  const formattedTomorrow = tomorrow.toISOString().split("T")[0];
+  dateInput.setAttribute("min", formattedTomorrow);
+  // Muestra un máximo de 30 días posteriores
   const maxDate = new Date(
     today.getFullYear(),
     today.getMonth(),
     today.getDate() + 30
   );
   const formattedMaxDate = maxDate.toISOString().split("T")[0];
-  // Muestra un máximo de 30 días posteriores a la fecha actual
   dateInput.setAttribute("max", formattedMaxDate);
 }
 
